@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Okta OIDC Sample</title>
+    <style>
+        .token-container {
+            background: #f5f5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            overflow-wrap: break-word;
+        }
+        .token-container pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .profile-info {
+            display: grid;
+            grid-template-columns: 150px auto;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>User Profile</h1>
+        <button onclick="logout()">Logout</button>
+    </div>
+    
+    <div id="profile-container">
+        <div class="profile-info" id="profile-details"></div>
+        
+        <h2>ID Token</h2>
+        <div class="token-container">
+            <pre id="id-token"></pre>
+        </div>
+
+        <h2>Access Token</h2>
+        <div class="token-container">
+            <pre id="access-token"></pre>
+        </div>
+    </div>
+
+    <script src="https://global.oktacdn.com/okta-auth-js/7.5.1/okta-auth-js.min.js"></script>
+    <script src="/config.js"></script>
+    <script src="/profile.js"></script>
+</body>
+</html> 

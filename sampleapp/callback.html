@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Login...</title>
+</head>
+<body>
+    <p>Processing login, please wait...</p>
+    <script src="https://global.oktacdn.com/okta-auth-js/7.5.1/okta-auth-js.min.js"></script>
+    <script src="/config.js"></script>
+    <script>
+        const authClient = new OktaAuth(config);
+        
+        // Handle the redirect callback
+        authClient.token.parseFromUrl()
+            .then(async ({ tokens }) => {
+                // Store tokens
+                if (tokens.accessToken) {
+                    await authClient.tokenManager.add('accessToken', tokens.accessToken);
+                }
+                if (tokens.idToken) {
+                    await authClient.tokenManager.add('idToken', tokens.idToken);
+                }
+                // Redirect to profile page
+                window.location.replace('/profile.html');
+            })
+            .catch(error => {
+                console.error('Error processing tokens:', error);
+                window.location.replace('/');
+            });
+    </script>
+</body>
+</html> 

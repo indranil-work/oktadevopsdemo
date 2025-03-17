@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Security Demo - Okta OIDC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #4a5568;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #4299e1;
+        }
+
+        .feature-card h3 {
+            color: #2b6cb0;
+            margin-top: 0;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            margin-bottom: 0;
+        }
+
+        .auth-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #ebf8ff;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #2b6cb0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #718096;
+        }
+
+        #authenticated {
+            display: none;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            padding: 8px 16px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>DevOps Security Demo</h1>
+            <div class="subtitle">Secure Authentication Implementation with Okta OIDC</div>
+            <div class="tech-stack">
+                <span class="tech-item">Okta</span>
+                <span class="tech-item">OIDC</span>
+                <span class="tech-item">JavaScript</span>
+                <span class="tech-item">Node.js</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <h3>Secure Authentication</h3>
+                <p>Implementation of industry-standard OIDC protocol with Okta's robust identity platform.</p>
+            </div>
+            <div class="feature-card">
+                <h3>DevOps Ready</h3>
+                <p>Built with DevOps principles: scalable, maintainable, and ready for CI/CD pipelines.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Token Management</h3>
+                <p>Secure handling of access and ID tokens with proper lifecycle management.</p>
+            </div>
+        </div>
+
+        <div class="auth-section">
+            <div id="authenticated">
+                <h2>Welcome Back!</h2>
+                <p>You are currently logged in.</p>
+                <button onclick="logout()">Logout</button>
+            </div>
+            <div id="unauthenticated">
+                <h2>Demo Access</h2>
+                <p>Login to explore the security implementation</p>
+                <button onclick="login()">Login with Okta</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>DevOps Security Demo Application - Built with Modern Security Standards</p>
+        </div>
+    </div>
+
+    <script src="https://global.oktacdn.com/okta-auth-js/7.5.1/okta-auth-js.min.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
